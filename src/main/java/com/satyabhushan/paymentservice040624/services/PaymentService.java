@@ -1,6 +1,7 @@
 package com.satyabhushan.paymentservice040624.services;
 
 import com.satyabhushan.paymentservice040624.services.paymentgateways.PaymentGateway;
+import com.stripe.exception.StripeException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ public class PaymentService{
     }
 
 
-    public String generatePaymentLink(String orderId , Long amount){
+    public String generatePaymentLink(String orderId , Long amount) throws StripeException {
         return paymentGateway.createPaymentLink(orderId , amount);
     }
 
